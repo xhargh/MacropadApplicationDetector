@@ -55,7 +55,7 @@ namespace Mad
             {
                 if (p != null)
                 {
-                    return Path.GetFileNameWithoutExtension(p.MainModule.FileName);
+                    return Path.GetFileName(p.MainModule.FileName); //  Path.GetFileNameWithoutExtension(p.MainModule.FileName);
                 }
                 else
                 {
