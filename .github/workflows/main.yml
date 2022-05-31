@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: |
+          mkdir artifacts
+          xcopy /s /v /e MacroPad artifacts\MacroPad\
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat"
+          cd MacropadApplicationDetector
+          devenv MacropadApplicationDetector.sln /Build Release
+          copy bin\Release\*.* ..\artifacts\
+        shell: cmd
+
+      - name: Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with: 
+          name: MacropadApplicationDetector
+          path: artifacts
