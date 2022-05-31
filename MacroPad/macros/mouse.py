@@ -19,7 +19,7 @@ from adafruit_hid.mouse import Mouse
 # You can still import Keycode and/or ConsumerControl as well if a macro file
 # mixes types! See other macro files for typical Keycode examples.
 
-xapp = {               # REQUIRED dict, must be named 'app'
+app = {               # REQUIRED dict, must be named 'app'
     'name' : 'Mouse', # Application name
     'macros' : [      # List of button macros...
         # COLOR    LABEL    KEY SEQUENCE

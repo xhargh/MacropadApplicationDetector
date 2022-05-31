@@ -17,7 +17,7 @@
 # This example ONLY shows tones (and delays), but really they can be mixed
 # with other elements (keys, codes, mouse) to provide auditory feedback.
 
-xapp = {               # REQUIRED dict, must be named 'app'
+app = {               # REQUIRED dict, must be named 'app'
     'name' : 'Tones', # Application name
     'macros' : [      # List of button macros...
         # COLOR    LABEL    KEY SEQUENCE

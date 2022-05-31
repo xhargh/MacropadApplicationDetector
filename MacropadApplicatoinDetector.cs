@@ -62,9 +62,10 @@ namespace Mad
                     return "";
                 }
             }
-            catch
+            catch (Exception e)
             {
                 // TODO: Find out what to do on exception
+                tbOutput.AppendText(e.ToString());
                 return "exception";
             }
         }

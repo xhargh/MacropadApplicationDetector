@@ -175,7 +175,7 @@ while True:
     if sin:
         app_found = False
         for app in apps:
-            if app.get_exec() and sin in app.get_exec():
+            if app.get_exec() and sin.lower() in app.get_exec():
                 app.switch()
                 app_index = apps.index(app)
                 app_found = True
