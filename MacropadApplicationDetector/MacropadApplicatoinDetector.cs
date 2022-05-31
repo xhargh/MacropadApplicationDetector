@@ -11,12 +11,11 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Ports;
+using Uwp;
 
 
 namespace Mad
 {
-
-
     public partial class MacropadApplicationDetector : Form
     {
         private string currentApplication;
@@ -39,28 +38,18 @@ namespace Mad
             }
         }
 
-        [DllImport("user32.dll")]
-        public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetForegroundWindow();
-
         string GetActiveProcessFileName()
         {
-            IntPtr hwnd = GetForegroundWindow();
-            uint pid;
-            GetWindowThreadProcessId(hwnd, out pid);
-            Process p = Process.GetProcessById((int)pid);
             try
             {
-                if (p != null)
-                {
-                    return Path.GetFileName(p.MainModule.FileName); //  Path.GetFileNameWithoutExtension(p.MainModule.FileName);
-                }
-                else
+                string processName = UwpUtils.GetProcessName();
+
+                if (processName == null)
                 {
                     return "";
                 }
+
+                return Path.GetFileName(processName);
             }
             catch (Exception e)
             {
@@ -69,6 +58,7 @@ namespace Mad
                 return "exception";
             }
         }
+
 
         private void tmr1Hz_Tick(object sender, EventArgs e)
         {
@@ -81,6 +71,11 @@ namespace Mad
                 if (serialPort1.IsOpen)
                 {
                     serialPort1.WriteLine(name);
+                    lbl_Connected.Text = "Connected";
+                }
+                else
+                {
+                    lbl_Connected.Text = "Not connected";
                 }
             }
         }

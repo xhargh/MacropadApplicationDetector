@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UwpUtils.cs" />
     <EmbeddedResource Include="MacropadApplicatoinDetector.resx">
       <DependentUpon>MacropadApplicatoinDetector.cs</DependentUpon>
     </EmbeddedResource>
