@@ -21,7 +21,7 @@ the SerialPort.
   Add a ```exec``` config with the executable's name (lower case only) to your macro.
   ```python
     'name' : 'Numpad', # Application name
-    'exec' : ['excel.exe', 'speedcrunch.exe', "calculatorapp.exe", "calc.exe"], # Executable names
+    'exec' : ['excel.exe', 'speedcrunch.exe', 'calculatorapp.exe', 'calculator.exe'], # Executable names
   ```
 
 ## TODO

@@ -8,7 +8,7 @@ from adafruit_hid.keycode import Keycode # REQUIRED if using Keycode.* values
 
 app = {                # REQUIRED dict, must be named 'app'
     'name' : 'Numpad', # Application name
-    'exec' : ['excel.exe', 'speedcrunch.exe', "calculatorapp.exe", "calc.exe"], # Executable names
+    'exec' : ['excel.exe', 'speedcrunch.exe', 'calculatorapp.exe', 'calculator.exe'], # Executable names
     'macros' : [       # List of button macros...
         # COLOR    LABEL    KEY SEQUENCE
         # 1st row ----------
