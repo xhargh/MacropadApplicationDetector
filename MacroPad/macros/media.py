@@ -20,7 +20,7 @@ from adafruit_hid.consumer_control_code import ConsumerControlCode
 
 app = {               # REQUIRED dict, must be named 'app'
     'name' : 'Media', # Application name
-    'exec' : ['vlc', 'mplayer', 'teams.exe'], # Executable names
+    'exec' : ['vlc', 'mplayer'], # Executable names
     'macros' : [      # List of button macros...
         # COLOR    LABEL    KEY SEQUENCE
         # 1st row ----------
